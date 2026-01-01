@@ -678,9 +678,95 @@ public class Program
 				input = Console.ReadLine();
 			}
 			
+			if (location == "Town Gate Dialogue1" && input == "1")
+			{
+				loopCheck = 0;
+				location = "Town Gate Dialogue Ynot";
+				input = "10101";
+			}
+			
+			if (location == "Town Gate Dialogue Ynot" && input == "10101")
+			{
+				loopCheck = 0;
+				obj.TownEntranceGuardDialogueYnot();
+				input = Console.ReadLine();
+			}
+			
+			if (location == "Town Gate Dialogue Ynot" && input == "2")
+			{
+				loopCheck = 0;
+				location = "Town Gate";
+				input = "10101";
+			}
+			
+			if (location == "Town Gate Dialogue Ynot" && input == "1")
+			{
+				loopCheck = 0;
+				location = "Town Gate Dialogue ReasonYnot";
+				input = "10101";
+			}
+			
+			if (location == "Town Gate Dialogue ReasonYnot" && input == "10101")
+			{
+				loopCheck = 0;
+				obj.TownEntranceGuardDialogueReasonWhyNot();
+				input = Console.ReadLine();
+			}
+			
+			if (location == "Town Gate Dialogue ReasonYnot" && input == "1")
+			{
+				loopCheck = 0;
+				location = "Town Gate";
+				input = "10101";
+			}
+			
 			if (location == "Town Gate Dialogue1" && input == "4")
 			{
 				loopCheck = 0;
+				location = "Town Gate";
+				input = "10101";
+			}
+			
+			if (location == "Town Gate Dialogue1" && input == "2")
+			{
+				loopCheck = 0;
+				location = "Town Gate Dialogue ReasonYnot";
+				input = "10101";
+			}
+			
+			if (location == "Town Gate Dialogue1" && input == "3")
+			{
+				loopCheck = 0;
+				location = "Town Gate Dialogue insulting";
+				input = "10101";
+			}
+			
+			if (location == "Town Gate Dialogue insulting" && input == "10101")
+			{
+				loopCheck = 0;
+				obj.TownEntranceGuardInsulting();
+				input = Console.ReadLine();
+			}
+			
+			if (location == "Town Gate Dialogue insulting" && input == "1")
+			{
+				loopCheck = 0;
+				location = "Town Gate";
+				input = "10101";
+			}
+			
+			if (location == "Town Gate" && input == "3" && History[5] != "key")
+			{
+				loopCheck = 0;
+				location = "Town Gate Locked";
+				input = "10101";
+			}
+			
+			if (location == "Town Gate Locked" && input == "10101")
+			{
+				loopCheck = 0;
+				obj.TownEntranceGateLocked();
+				input = Console.ReadLine();
 				location = "Town Gate";
 				input = "10101";
 			}
@@ -830,6 +916,7 @@ public class Game
 		Console.WriteLine("You are now in the middle of the town hall. The bright sky is clear with little clouds scattered around.");
 		Console.WriteLine("An item store is farther back, with two floors. There's a worn out sign in tiny letters saying 'item store'.");
 		Console.WriteLine("Further ahead are more buildings, and behind you is the exit to the village.");
+		Console.WriteLine("");
 		Console.WriteLine("1 → Return home.");
 		Console.WriteLine("2 → Go to item store.");
 		Console.WriteLine("3 → Go back to the village entrance.");
@@ -851,9 +938,18 @@ public class Game
 		Console.WriteLine("");
 		Console.WriteLine("You are now in front of the town gate that separates this town from the outside. It is a lot more quiet and peaceful out in the edge of the village.");
 		Console.WriteLine("There is a guard standing next to the gate door.");
+		Console.WriteLine("");
 		Console.WriteLine("1 → Return to main area.");
 		Console.WriteLine("2 → Talk to guard.");
 		Console.WriteLine("3 → Try to leave the village through the gate door.");
+	}
+	
+	public void TownEntranceGateLocked()
+	{
+		Console.Clear();
+		Console.WriteLine("The gate is locked. If only you had a key...");
+		Console.WriteLine("");
+		Console.WriteLine("Type anything to continue.");
 	}
 	
 	public void TownEntranceGuardDialogue()
@@ -865,6 +961,7 @@ public class Game
 		Console.WriteLine("");
 		Console.WriteLine("");
 		Console.WriteLine("'What do you want, buddy?'");
+		Console.WriteLine("");
 		Console.WriteLine("1 → 'Am I allowed to go through here'");
 		Console.WriteLine("2 → 'What is the gate for?'");
 		Console.WriteLine("3 → 'You look stupid with those ugly sunglasses!'");
@@ -880,11 +977,25 @@ public class Game
 		Console.WriteLine("");
 		Console.WriteLine("");
 		Console.WriteLine("'Unless you have a gate key, no.'");
+		Console.WriteLine("");
 		Console.WriteLine("1 → 'Why not?'");
 		Console.WriteLine("2 → 'Stop talking.'");
 	}
 	
 	public void TownEntranceGuardDialogueReasonWhyNot()
+	{
+		Console.Clear();	
+		
+		Console.WriteLine("              (▀̿Ĺ̯▀̿ ̿)               ");
+		Console.WriteLine("");
+		Console.WriteLine("");
+		Console.WriteLine("");
+		Console.WriteLine("'This town gate is here to protect the citizens from the dangerous creatures outside.'");
+		Console.WriteLine("");
+		Console.WriteLine("1 → 'Stop talking.'");
+	}
+
+	public void TownEntranceGuardInsulting()
 	{
 		Console.Clear();
 		
@@ -892,10 +1003,11 @@ public class Game
 		Console.WriteLine("");
 		Console.WriteLine("");
 		Console.WriteLine("");
-		Console.WriteLine("'Because the outside of this village is dangerous. Many creatures.'");
-		Console.WriteLine("1 → 'Stop talking.'");
+		Console.WriteLine("'This always how you talk to strangers?'");
+		Console.WriteLine();
+		Console.WriteLine("1 → Stop talking.");
 	}
-
+	
 	public void ItemStore()
 	{
 		Console.Clear();
@@ -911,6 +1023,7 @@ public class Game
 		Console.WriteLine("You are now in the item store of the village. The clerk gives you a weird look.");
 		Console.WriteLine("To your right there are stairs leading to the second floor. You also see a hall leading to another section item store.");
 		Console.WriteLine("The exit is further back.");
+		Console.WriteLine("");
 		Console.WriteLine("1 → Exit the shop.");
 		Console.WriteLine("2 → Talk to the clerk.");
 		Console.WriteLine("3 → Go to the hall to your right.");
@@ -933,6 +1046,7 @@ public class Game
 		Console.WriteLine("You are now in the item store hall. Light from the windows illuminate the shelves, which are full of books.");
 		Console.WriteLine("Near the end of the hall is a person frantically walking in circles.");
 		Console.WriteLine("You also see a section that says 'potions' in another direction.");
+		Console.WriteLine("");
 		Console.WriteLine("1 → Go back to the item store entrance.");
 		Console.WriteLine("2 → Talk to the frantic person.");
 		Console.WriteLine("3 → Go to the 'potions' section.");
@@ -946,6 +1060,7 @@ public class Game
 		Console.WriteLine("");
 		Console.WriteLine("");
 		Console.WriteLine("'Where did I leave it...?' he mutters to himself.");
+		Console.WriteLine("");
 		Console.WriteLine("1 → 'Hey, you good?'");
 		Console.WriteLine("2 → 'You need any help?'");
 		Console.WriteLine("3 → 'Shush, this is a library.'");
@@ -960,6 +1075,7 @@ public class Game
 		Console.WriteLine("");
 		Console.WriteLine("");
 		Console.WriteLine("'Nah, man. I left my book right over here and now I can't find it.'");
+		Console.WriteLine("");
 		Console.WriteLine("1 → 'Is it really worth making a big deal about?'");
 		Console.WriteLine("2 → 'What does it look like? Maybe I can help you find it.'");
 		Console.WriteLine("3 → Sucks to be you, LOL!.");
@@ -974,6 +1090,7 @@ public class Game
 		Console.WriteLine("");
 		Console.WriteLine("");
 		Console.WriteLine("'Yeah, I can't find my book.'");
+		Console.WriteLine("");
 		Console.WriteLine("1 → 'Is it really worth making a big deal about?'");
 		Console.WriteLine("2 → 'What does it look like? Maybe I can help you find it.'");
 		Console.WriteLine("3 → Sucks to be you, LOL!");
@@ -988,6 +1105,7 @@ public class Game
 		Console.WriteLine("");
 		Console.WriteLine("");
 		Console.WriteLine("'...'");
+		Console.WriteLine("");
 		Console.WriteLine("Type anything to continue.");
 	}
 
@@ -999,6 +1117,7 @@ public class Game
 		Console.WriteLine("");
 		Console.WriteLine("");
 		Console.WriteLine("'Well, I owe someone it and he'll kill me if I don't find it!'");
+		Console.WriteLine("");
 		Console.WriteLine("1 → 'What does it look like? Maybe I can help you find it.'");
 		Console.WriteLine("2 → Stop talking.");
 	}
@@ -1011,6 +1130,7 @@ public class Game
 		Console.WriteLine("");
 		Console.WriteLine("");
 		Console.WriteLine("'Hey, thanks for finding my green book! Here's 10 coins.'");
+		Console.WriteLine("");
 		Console.WriteLine("1 → Take 10 coins");
 	}
 
@@ -1022,6 +1142,7 @@ public class Game
 		Console.WriteLine("");
 		Console.WriteLine("");
 		Console.WriteLine("'Oh, thanks. Well, the book is called Great Green, and it's the color green. If you find it, I'll give you 10 coins!'");
+		Console.WriteLine("");
 		Console.WriteLine("1 → 'Thanks.'");
 	}
 
@@ -1142,6 +1263,7 @@ public class Game
 		Console.WriteLine();
 		Console.WriteLine("You now see shelves of glowing potions. They appear to be smoking from the top, making them seem quite hot.");
 		Console.WriteLine("The hall you came from is behind you. There is also an old man with a cane behind the counter. The counter is holding a smoking hot green potion laying on its side.");
+		Console.WriteLine("");
 		Console.WriteLine("1 → Try to buy some potions from the old man.");
 		Console.WriteLine("2 → Go back to the hall.");
 	}
@@ -1235,6 +1357,7 @@ public class Game
 		Console.WriteLine("You are now up the stairs. You see a few customers here and there chattering and looking at products.");
 		Console.WriteLine("A few people seemed to be giving concerned looks at a dark spot on the shelf for some reason.");
 		Console.WriteLine("Behind you is the stairs leading back down.");
+		Console.WriteLine("");
 		Console.WriteLine("1 → Go back downstairs.");
 		Console.WriteLine("2 → Investigate the dark spot people are looking at.");
 	}
@@ -1282,6 +1405,7 @@ public class Game
 		Console.Clear();
 		Console.WriteLine("You collect the green book. Suddenly, as you collect it, another green book falls there at the exact same spot.");
 		Console.WriteLine("-- Item Collected: Green Book. --");
+		Console.WriteLine("");
 		Console.WriteLine("Type anything to continue.");
 	}
 	
@@ -1289,6 +1413,7 @@ public class Game
 	{
 		Console.Clear();
 		Console.WriteLine("You have already collected a green book!");
+		Console.WriteLine("");
 		Console.WriteLine("Type anything to continue.");
 	}
 	
@@ -1296,6 +1421,7 @@ public class Game
 	{
 		Console.Clear();
 		Console.WriteLine("-- 10 coins has been added to your inventory. --");
+		Console.WriteLine("");
 		Console.WriteLine("Type anything to continue.");
 	}
 	
@@ -1303,6 +1429,7 @@ public class Game
 	{
 		Console.Clear();
 		Console.WriteLine("You have no reason to talk to him.");
+		Console.WriteLine("");
 		Console.WriteLine("Type anything to continue.");
 	}
 	
