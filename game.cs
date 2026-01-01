@@ -770,6 +770,13 @@ public class Program
 				location = "Town Gate";
 				input = "10101";
 			}
+			 
+			if (location == "Town Gate" && input == "3" && History[5] == "key")
+			{
+				loopCheck = 0;
+				location = "Town Gate Open";
+				input = "10101";
+			}
 			
 			loopCheck++;
 			if (loopCheck == 3)
@@ -923,6 +930,29 @@ public class Game
 		Console.WriteLine("4 → Go further into the village.");
 	}
 	
+	public void TownFurther()
+	{
+		Console.Clear();
+		Console.WriteLine("Location: Town Center.");
+		Console.WriteLine("|                                  ");
+		Console.WriteLine("|   ooOo                      oOo        oOoo  ");
+		Console.WriteLine("|            Item Store            ");
+		Console.WriteLine("|     Home      ——                  ");
+		Console.WriteLine("|     ___      |  |                ");
+		Console.WriteLine("| 🙂 |  |     |   |                ");
+		Console.WriteLine("____________________________________");
+		Console.WriteLine();
+		Console.WriteLine("");
+		Console.WriteLine("You are now in the middle of the town hall. The bright sky is clear with little clouds scattered around.");
+		Console.WriteLine("An item store is farther back, with two floors. There's a worn out sign in tiny letters saying 'item store'.");
+		Console.WriteLine("Further ahead are more buildings, and behind you is the exit to the village.");
+		Console.WriteLine("");
+		Console.WriteLine("1 → Return home.");
+		Console.WriteLine("2 → Go to item store.");
+		Console.WriteLine("3 → Go back to the village entrance.");
+		Console.WriteLine("4 → Go further into the village.");
+	}
+	
 	public void TownEntrance()
 	{
 		Console.Clear();
@@ -948,6 +978,14 @@ public class Game
 	{
 		Console.Clear();
 		Console.WriteLine("The gate is locked. If only you had a key...");
+		Console.WriteLine("");
+		Console.WriteLine("Type anything to continue.");
+	}
+	
+	public void TownEntranceGateOpen()
+	{
+		Console.Clear();
+		Console.WriteLine("You unlocked the gate with the key to get through. The guard locks it back as you leave the village.");
 		Console.WriteLine("");
 		Console.WriteLine("Type anything to continue.");
 	}
